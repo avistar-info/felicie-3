@@ -378,6 +378,8 @@
 var GOOGLE_LINK   = 'https://search.google.com/local/writereview?placeid=ChIJm6EsEbRx5kcRH6fDdzGtCP4';
 var WEBHOOK_FORM  = 'https://nicolasanquetin.app.n8n.cloud/webhook/mail-insatisfait';
 var WEBHOOK_CLICK = 'https://nicolasanquetin.app.n8n.cloud/webhook/tracking';
+var MANAGER_EMAIL = 'chezfelicie@hotmail.com';
+var NICOLAS_EMAIL = 'nicolasanquetin29@gmail.com';
 
 /* ── TRANSLATIONS ── */
 var T = {
@@ -686,6 +688,8 @@ function submitForm(){
     : document.getElementById('contactPhone').value;
   var payload = {
     restaurant:'Félicie',
+    manager_email:MANAGER_EMAIL,
+    nicolas_email:NICOLAS_EMAIL,
     note_globale:formNote,
     note_cuisine:catNotes.cuisine,
     note_service:catNotes.service,
