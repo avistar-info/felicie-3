@@ -555,7 +555,7 @@ function renderChips(){
 
 /* ── TRACKING ── */
 function track(type, data){
-  var p = Object.assign({event:type,restaurant:'Félicie',ts:Date.now()}, data||{});
+  var p = Object.assign({event:type,restaurant:'Félicie',token:'avistars2026',ts:Date.now()}, data||{});
   try{ navigator.sendBeacon(WEBHOOK_CLICK, JSON.stringify(p)); }catch(e){}
 }
 
@@ -710,6 +710,7 @@ function submitForm(){
     contact_type:contactMode,
     contact:contact,
     lang:lang,
+    token:'avistars2026',
     ts:new Date().toISOString()
   };
   var btn = document.getElementById('btn-submit');
