@@ -555,7 +555,7 @@ function renderChips(){
 
 /* ── TRACKING ── */
 function track(type, data){
-  var p = Object.assign({event:type,restaurant:'Félicie',token:'avistars2026',ts:Date.now()}, data||{});
+  var p = Object.assign({event:type,restaurant:'Le Félicie',token:'avistars2026',ts:Date.now()}, data||{});
   try{ navigator.sendBeacon(WEBHOOK_CLICK, JSON.stringify(p)); }catch(e){}
 }
 
@@ -692,7 +692,7 @@ function submitForm(){
     ? document.getElementById('contactEmail').value
     : document.getElementById('contactPhone').value;
   var payload = {
-    restaurant:'Félicie',
+    restaurant:'Le Félicie',
     manager_email:MANAGER_EMAIL,
     nicolas_email:NICOLAS_EMAIL,
     note_globale:formNote,
@@ -719,7 +719,7 @@ function submitForm(){
   fetch(WEBHOOK_FORM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
     .catch(function(){})
     .finally(function(){
-      track('form_submitted',{note:formNote, contact_type:contactMode, contact:contact});
+      track('form_submitted',{note:formNote, contact_type:contact ? contactMode : '', contact:contact, commentaire:document.getElementById('review-text').value.trim()});
       document.getElementById('form-body').classList.add('hidden');
       document.getElementById('success').classList.add('visible');
       setTimeout(closeForm, 4000);
